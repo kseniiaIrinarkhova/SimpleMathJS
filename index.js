@@ -33,7 +33,7 @@ const isUnique = n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 
 // for convenience. Note how we negate isOver25 using
 // the ! operator. We could also have tested for 
 // "isUnder25" as an alternative.
-const isValid = isSum50 && isTwoOdd && !isOver25 && isUnique;
+let isValid = isSum50 && isTwoOdd && !isOver25 && isUnique; //change const to let
 
 // Finally, log the results.
 console.log(isValid);
@@ -47,25 +47,33 @@ const dontDoThis = ((n1 + n2 + n3 + n4) == 50) &&
     !(n1 > 25 || n2 > 25 || n3 > 25 || n4 > 25) &&
     (n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 != n4);
 
+
 /******************************************************************************************* 
  *                                Part 1: Math Problems
 ********************************************************************************************/
 // Check if all numbers are divisible by 5. Cache the result in a variable.
 const isDivBy5 = n1 % 5 == 0 && n2 % 5 == 0 && n3 % 5 == 0 && n4 % 5 == 0;
-console.log(`All are divisible by 5: ${isDivBy5}`);
+console.log(`All are divisible by 5: ${isDivBy5}`); //check answer in console
 // Check if the first number is larger than the last.Cache the result in a variable.
 const firstLargerLast = n1 > n4;
-console.log(`Is first number (n1 = ${n1}) larger than last number (n4 = ${n4}): ${firstLargerLast}`);
+console.log(`Is first number (n1 = ${n1}) larger than last number (n4 = ${n4}): ${firstLargerLast}`); //check answer in console
 // Accomplish the following arithmetic chain:
-// Subtract the first number from the second number.
-// Multiply the result by the third number.
-// Find the remainder of dividing the result by the fourth number.
-let smallLogic = n2 - n1;
-smallLogic *= n3;
-smallLogic %= n4;
+// 1. Subtract the first number from the second number.
+// 2. Multiply the result by the third number.
+// 3. Find the remainder of dividing the result by the fourth number.
+let smallLogic = n2 - n1; //first step
+smallLogic *= n3; //second step
+smallLogic %= n4; //third step
 
-console.log(`Estimate: ((n2-n1)*3)%n4 ( ((${n2} - ${n1}) * ${n3} )% ${n4} ): ${smallLogic}`)
+console.log(`Estimate: ((n2-n1)*3)%n4 ( ((${n2} - ${n1}) * ${n3} )% ${n4} ): ${smallLogic}`) //check answer in console
 // Change the way that isOver25 calculates so that we do not need to use the NOT operator(!) in other logic comparisons.Rename the variable as appropriate.
+const allLess25 = n1 <= 25 && n2 <= 25 && n3 <= 25 && n4 <= 25;
+
+console.log(`isOver25: ${isOver25}, allLess25: ${allLess25}`);
+console.log(`isValid with isOver25: ${isValid}`);
+isValid = isSum50 && isTwoOdd && allLess25 && isUnique;
+console.log(`isValid with allLess25: ${isValid}`); //check answer in console
+
 /******************************************************************************************* 
  *                                Part 2: Practical Math
 ********************************************************************************************/
