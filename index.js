@@ -55,11 +55,16 @@ const isDivBy5 = n1 % 5 == 0 && n2 % 5 == 0 && n3 % 5 == 0 && n4 % 5 == 0;
 console.log(`All are divisible by 5: ${isDivBy5}`);
 // Check if the first number is larger than the last.Cache the result in a variable.
 const firstLargerLast = n1 > n4;
-console.log(`Is first number (n1 = ${n1}) larget than last number (n4 = ${n4}): ${firstLargerLast}`);
+console.log(`Is first number (n1 = ${n1}) larger than last number (n4 = ${n4}): ${firstLargerLast}`);
 // Accomplish the following arithmetic chain:
 // Subtract the first number from the second number.
 // Multiply the result by the third number.
 // Find the remainder of dividing the result by the fourth number.
+let smallLogic = n2 - n1;
+smallLogic *= n3;
+smallLogic %= n4;
+
+console.log(`Estimate: ((n2-n1)*3)%n4 ( ((${n2} - ${n1}) * ${n3} )% ${n4} ): ${smallLogic}`)
 // Change the way that isOver25 calculates so that we do not need to use the NOT operator(!) in other logic comparisons.Rename the variable as appropriate.
 /******************************************************************************************* 
  *                                Part 2: Practical Math
